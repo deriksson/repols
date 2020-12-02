@@ -7,3 +7,4 @@
 .pytest_cache/
 README.html
 *__pycache__/
+.idea/
