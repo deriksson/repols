@@ -3,15 +3,15 @@
 """
 import click
 
-from sunset_repos.archive import archive_repositories
+from repols.list_repositories import list_repositories
 
 
 @click.command()
 @click.version_option()
-@click.argument('owner')
-@click.argument('csv')
+@click.argument('organisation')
+@click.argument('team')
 def cli(owner: str, csv: str) -> None:
     """A tool for archiving GitHub repositories.
 
     """
-    archive_repositories(owner, csv)
+    list_repositories(owner, csv)
