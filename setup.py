@@ -7,21 +7,12 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='repols',
-    version='0.0.1',
-    author='Daniel Eriksson',
+    name="repols",
+    version="0.0.1",
+    author="Daniel Eriksson",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[
-        'Click >= 7.0',
-        'PyGithub'
-    ],
-    setup_requires=[
-        'flake8'
-    ],
-    entry_points={
-        'console_scripts': [
-            'repols=repols.cli:cli'
-        ]
-    }
+    install_requires=["Click >= 7.0", "PyGithub"],
+    setup_requires=["flake8"],
+    entry_points={"console_scripts": ["repols=repols.cli:cli"]},
 )
