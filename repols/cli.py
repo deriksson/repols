@@ -10,6 +10,6 @@ from repols.list_repositories import list_repositories
 @click.version_option()
 @click.argument("organisation")
 @click.argument("team")
-def cli(owner: str, csv: str) -> None:
+def cli(organisation: str, team: str) -> None:
     """A tool for archiving GitHub repositories."""
-    list_repositories(owner, csv)
+    list_repositories(organisation, team)
