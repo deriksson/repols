@@ -1,0 +1,9 @@
+*.pyc
+*.egg-info/
+.eggs/
+*.mypy_cache/
+*~
+*.bak
+.pytest_cache/
+README.html
+*__pycache__/

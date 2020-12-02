@@ -1,0 +1,23 @@
+= repols: List GitHub repositories filtered by team
+
+
+== Installation
+
+Create a GitHub personal access token. The application will prompt you
+for the value of your token each time you run it.
+
+Issue the following command in the project root:
+
+----
+pip install .
+----
+
+
+== Usage
+
+The application simply outputs a list of repository names. The
+following command will pipe the list to a file:
+
+----
+repols ORGANISATION TEAM > CSV_FILE
+----
