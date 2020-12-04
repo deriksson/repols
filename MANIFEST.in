@@ -1,0 +1,4 @@
+include *.adoc
+include *.txt
+include tox.ini
+include whitelist.cfg
