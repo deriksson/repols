@@ -1,5 +1,8 @@
 = repols: List GitHub repositories filtered by team
 
+repols is a CLI application that lists GitHub repositories and optionally
+repository metadata.
+
 
 == Installation
 
@@ -15,9 +18,21 @@ pip install .
 
 == Usage
 
-The application simply outputs a list of repository names. The
+By default, the application simply outputs a list of repository names. The
 following command will pipe the list to a file:
 
 ----
 repols ORGANISATION TEAM > CSV_FILE
 ----
+
+If the include option is used, the application outputs the fields indicated
+by the user instead. The following example, for instance, will display a
+list containing the repository names and information on whether the repositories
+have been archived.
+
+----
+repols  --include name --include archived ORGANISATION TEAM > CSV_FILE
+----
+
+Any of the following fields can be included: "archived", "created_at",
+"description", "name".
