@@ -1,11 +1,11 @@
-"""Allow easy installation of this package.
-
-"""
+"""Allow easy installation of this package."""
 
 from setuptools import find_packages, setup
 
-with open("README.md", "r", encoding="utf-8") as readme_file:
-    long_description = readme_file.read()
+
+def long_description():
+    with open("README.md", "r", encoding="utf-8") as readme_file:
+        return readme_file.read()
 
 
 setup(
@@ -14,7 +14,7 @@ setup(
     author="Daniel Eriksson",
     author_email="gustaf.daniel.eriksson@gmail.com",
     description="List GitHub repositories filtered by team",
-    long_description=long_description,
+    long_description=long_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/deriksson/repols",
     classifiers=[
