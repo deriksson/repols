@@ -9,3 +9,5 @@ README.html
 *__pycache__/
 .idea/
 .tox/
+README.md
+README.xml
