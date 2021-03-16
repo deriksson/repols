@@ -1,7 +1,7 @@
 """Handle command line arguments.
 
 """
-from getpass import getpass
+from sys import stdin
 from typing import Sequence
 
 import click
@@ -16,4 +16,4 @@ from repols.list_repositories import list_repositories
 @click.argument("team")
 def cli(organisation: str, team: str, include: Sequence[str]) -> None:
     """A tool for archiving GitHub repositories."""
-    list_repositories(organisation, team, include, getpass(prompt="Token:"))
+    list_repositories(organisation, team, include, stdin.readline().strip())

@@ -6,8 +6,8 @@ repository metadata.
 
 == Installation
 
-Create a GitHub personal access token. The application will prompt you
-for the value of your token each time you run it.
+Create a GitHub personal access token. The application reads the value
+of your token from standard input each time you run it.
 
 The application is available at PyPI. Install it from there using the
 following command:
