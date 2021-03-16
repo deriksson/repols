@@ -11,3 +11,5 @@ README.html
 .tox/
 README.md
 README.xml
+.coverage
+coverage.xml
