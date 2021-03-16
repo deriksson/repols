@@ -1,4 +1,3 @@
-from getpass import getpass
 from typing import Sequence
 
 from github import Github
@@ -15,9 +14,8 @@ FIELDS = {
 
 
 def list_repositories(
-    organisation_name: str, team: str, included_fields: Sequence[str]
+    organisation_name: str, team: str, included_fields: Sequence[str], token: str
 ) -> None:
-    token = getpass(prompt="Token:")
     organisation = Github(
         base_url="https://api.github.com", login_or_token=token
     ).get_organization(organisation_name)
