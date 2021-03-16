@@ -1,7 +1,7 @@
 import unittest
+from test.list_item import ListItem
 
 from repols.insort import insort_any_type_left
-from test.list_item import ListItem
 
 
 class TestInsort(unittest.TestCase):
