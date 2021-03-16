@@ -3,12 +3,13 @@ from typing import Sequence
 
 from github import Github
 
+from repols.csv import quote
 from repols.insort import insort_any_type_left
 
 FIELDS = {
     "archived": lambda repo: str(repo.archived),
     "created_at": lambda repo: repo.created_at.strftime("%Y-%m-%dT%H:%M"),
-    "description": lambda repo: repo.description if repo.description else "",
+    "description": lambda repo: quote(repo.description) if repo.description else "",
     "name": lambda repo: repo.name,
 }
 
