@@ -1,2 +1,6 @@
 def quote(field):
-    return f'"{field}"' if "," in field else field
+    return f'"{escape(field)}"' if "," in field or '"' in field else escape(field)
+
+
+def escape(field: str):
+    return field.replace('"', '""')
