@@ -44,3 +44,16 @@ repols  --include name --include archived ORGANISATION TEAM > CSV_FILE
 
 Any of the following fields can be included: "archived", "created_at",
 "description", "name".
+
+The application reads the personal access token from standard input.
+In the following example the password is piped from a password manager:
+
+----
+pass git-pat | repols ...
+----
+
+Type the following command for more documentation:
+
+----
+repols --help
+----

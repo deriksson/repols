@@ -14,22 +14,29 @@ FIELDS = {
 
 
 def list_repositories(
-    organisation_name: str, team: str, included_fields: Sequence[str], token: str
+    organisation_name: str,
+    team: str,
+    included_fields: Sequence[str],
+    token: str,
+    sort: bool,
 ) -> None:
     organisation = Github(
         base_url="https://api.github.com", login_or_token=token
     ).get_organization(organisation_name)
 
+    repos = organisation.get_team_by_slug(team).get_repos()
+    desired_fields = included_fields if included_fields else ("name",)
+
     output_repo_list(
-        organisation.get_team_by_slug(team).get_repos(),
+        sorted_repos(repos, FIELDS, desired_fields[0]) if sort else repos,
         print,
-        included_fields if included_fields else ("name",),
+        desired_fields,
         FIELDS,
     )
 
 
 def output_repo_list(team_repos, print_function, included_fields, available_fields):
-    for repo in sorted_repos(team_repos, available_fields, included_fields[0]):
+    for repo in team_repos:
         print_function(",".join(repo_metadata(included_fields, available_fields, repo)))
 
 
