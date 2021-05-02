@@ -13,7 +13,11 @@ class TestRepositoryMetadata(unittest.TestCase):
         }
         self.assertEqual(
             ["a-repository-name", "1"],
-            repo_metadata(included_fields, available_fields, ListItem(1)),
+            repo_metadata(
+                included_fields,
+                available_fields,
+                lambda field: available_fields[field](ListItem(1)),
+            ),
         )
 
 
