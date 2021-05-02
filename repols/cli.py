@@ -6,7 +6,7 @@ from typing import Sequence
 
 import click
 
-from repols.list_repositories import list_repositories
+from repols.list_repositories import Configuration, list_repositories
 
 
 @click.command()
@@ -24,7 +24,10 @@ def cli(
     organisation: str, team: str, include: Sequence[str], sort: bool, headers: bool
 ) -> None:
     """A tool for archiving GitHub repositories."""
-    configuration = {"sort": sort, "headers": headers}
     list_repositories(
-        organisation, team, include, stdin.readline().strip(), configuration
+        organisation,
+        team,
+        include,
+        stdin.readline().strip(),
+        Configuration(sort, headers),
     )

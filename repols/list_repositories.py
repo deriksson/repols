@@ -1,9 +1,15 @@
-from typing import Sequence, Dict
+from typing import Sequence, NamedTuple
 
 from github import Github
 
 from repols.csv import quote, row
 from repols.insort import insort_any_type_left
+
+
+class Configuration(NamedTuple):
+    headers: bool
+    sort: bool
+
 
 FIELDS = {
     "archived": lambda repo: str(repo.archived),
@@ -18,7 +24,7 @@ def list_repositories(
     team: str,
     included_fields: Sequence[str],
     token: str,
-    configuration: Dict,
+    configuration: Configuration,
 ) -> None:
     organisation = Github(
         base_url="https://api.github.com", login_or_token=token
@@ -27,13 +33,11 @@ def list_repositories(
     repos = organisation.get_team_by_slug(team).get_repos()
     desired_fields = included_fields if included_fields else ("name",)
 
-    if configuration["headers"]:
+    if configuration.headers:
         print(row(repo_metadata(desired_fields, FIELDS, lambda field: field)))
 
     output_repo_list(
-        sorted_repos(repos, FIELDS, desired_fields[0])
-        if configuration["sort"]
-        else repos,
+        sorted_repos(repos, FIELDS, desired_fields[0]) if configuration.sort else repos,
         print,
         desired_fields,
         FIELDS,

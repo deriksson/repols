@@ -10,7 +10,7 @@ def long_description():
 
 setup(
     name="repols",
-    version="1.1.2",
+    version="1.1.3",
     author="Daniel Eriksson",
     author_email="gustaf.daniel.eriksson@gmail.com",
     description="List GitHub repositories filtered by team",
