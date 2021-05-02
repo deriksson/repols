@@ -1,7 +1,7 @@
 import unittest
 
 
-from repols.csv import quote, escape
+from repols.csv import quote, escape, row
 
 
 class TestCsv(unittest.TestCase):
@@ -16,6 +16,9 @@ class TestCsv(unittest.TestCase):
 
     def test_embedded_quote(self):
         self.assertEqual('"""a"""', quote('"a"'))
+
+    def test_row(self):
+        self.assertEqual("a,b", row(["a", "b"]))
 
 
 if __name__ == "__main__":

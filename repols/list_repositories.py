@@ -2,7 +2,7 @@ from typing import Sequence, Dict
 
 from github import Github
 
-from repols.csv import quote
+from repols.csv import quote, row
 from repols.insort import insort_any_type_left
 
 FIELDS = {
@@ -28,7 +28,7 @@ def list_repositories(
     desired_fields = included_fields if included_fields else ("name",)
 
     if configuration["headers"]:
-        print(",".join(repo_metadata(desired_fields, FIELDS, lambda field: field)))
+        print(row(repo_metadata(desired_fields, FIELDS, lambda field: field)))
 
     output_repo_list(
         sorted_repos(repos, FIELDS, desired_fields[0])
@@ -43,7 +43,7 @@ def list_repositories(
 def output_repo_list(team_repos, print_function, included_fields, available_fields):
     for repo in team_repos:
         print_function(
-            ",".join(
+            row(
                 repo_metadata(
                     included_fields,
                     available_fields,
